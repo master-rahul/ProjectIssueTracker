@@ -1,0 +1,27 @@
+{
+  "name": "projectissuetracker",
+  "version": "1.0.0",
+  "description": "This is an issue Tracker Project based on Node, Express and MongoDb",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/master-rahul/ProjectIssueTracker.git"
+  },
+  "author": "Rahul Verma",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/master-rahul/ProjectIssueTracker/issues"
+  },
+  "homepage": "https://github.com/master-rahul/ProjectIssueTracker#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "mongoose": "^7.1.0",
+    "nodemon": "^2.0.22"
+  }
+}
