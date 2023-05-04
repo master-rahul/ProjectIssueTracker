@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Project = require('./project');
 const projectTypeSchema = new mongoose.Schema({
     webApplication: {
         type: Boolean,
@@ -42,5 +43,5 @@ const projectTypeSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 
-const ProjectTypeSchema = mongoose.model('ProjectTypeSchema', projectTypeSchema);
-module.exports = ProjectTypeSchema;
+const ProjectType = mongoose.model('ProjectType', projectTypeSchema);
+module.exports = ProjectType;

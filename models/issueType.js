@@ -30,7 +30,7 @@ const issueTypeSchema = new mongoose.Schema({
         required: true,
         default: false
     },
-    vulnerablity: {
+    vulnerability: {
         type: Boolean,
         required: true,
         default: false
@@ -44,5 +44,5 @@ const issueTypeSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 
-const IssueTypeSchema = mongoose.model('IssueTypeSchema', issueTypeSchema);
-module.exports = IssueTypeSchema;
+const IssueType = mongoose.model('IssueType', issueTypeSchema);
+module.exports = IssueType;

@@ -4,11 +4,11 @@ const Project = require('./project');
 const userSchema = new mongoose.Schema({
     name: {
         type: String,
-        require: true
+        required: true
     },
     email: {
         type: String,
-        require: true,
+        required: true,
         unique: true
     },
     projectOwner: [{
@@ -29,5 +29,5 @@ const userSchema = new mongoose.Schema({
     }]
 }, { timestamps: true });  
 
-const UserSchema = mongoose.model('UserSchema', userSchema);
-module.exports = UserSchema;
+const User = mongoose.model('User', userSchema);
+module.exports = User;

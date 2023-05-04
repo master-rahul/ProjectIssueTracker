@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>Login</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0/css/select2.min.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0/js/select2.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
+        <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+
+        <link rel="stylesheet" href="/css/home.css">
+    </head>
+
+    <body>
+        
+       <div id ="main">
+            <div id="left">
+                <h2 style="color : white">Project List : </h2>
+                <div id="projectList">
+                    <%for(project of projectList){%>
+                    <div class="project">
+                        <div id="project" class="projectItem">
+                            <div class="contentLeft">
+                                <div class="projectName">
+                                    <%=project.name%>
+                                </div>
+                                <div class="projectDescription">
+                                    <%=project.description%>
+                                </div>
+                                <div class="issues">
+                                    <%for(issue of project.issue){%>
+                                        <div>
+                                        <%=issue.name%>
+                                        </div>
+                                    <%}%>
+                                </div>
+                            </div>
+                            <div class="contentRight">
+                                <div class="createdDate">
+                                    Created : <%=project.createdAt.toLocaleDateString()%>
+                                </div>
+                               
+                                <div class = "author">
+                                    &nbsp;Authors :
+                                   <%for(author of project.author) { %>
+                                    <div style="display: inline; background-color: <%= getRandomColor() %>; padding : 1px 10px; color : white; margin : 10px 5px; border-radius : 5px; font-size: 15px; font-weight: 400; ">
+                                        <%= author.name %>
+                                    </div>
+                                    <% } %>
+                                </div>
+                                
+                                <div style="overflow-x: scroll; white-space: nowrap; background-color: rgb(119, 83, 42); margin-top: 5px; border-radius: 5px; font-size: 16px; text-align: center;">
+
+                                    <% if (project.type.webApplication) { %>
+                                        Web Application
+                                        <% } %>
+                                    
+                                            <% if (project.type.desktopApplication) { %>
+                                                Desktop Application
+                                                <% } %>
+                                    
+                                                    <% if (project.type.androidApplication) { %>
+                                                        Android Application
+                                                        <% } %>
+                                    
+                                                            <% if (project.type.iosApplication) { %>
+                                                                IOS Application
+                                                                <% } %>
+                                    
+                                                                    <% if (project.type.emmbeddedApplication) { %>
+                                                                        Embedded Application
+                                                                        <% } %>
+                                    
+                                                                            <% if (project.type.networkApplication) { %>
+                                                                                Network Application
+                                                                                <% } %>
+                                    
+                                                                                    <% if (project.type.legacyApplication) { %>
+                                                                                        Legacy Application
+                                                                                        <% } %>
+                                    
+                                                                                            <% if (project.type.restAPI) { %>
+                                                                                                REST API
+                                                                                                <% } %>
+                                    
+
+                                </div>
+                            </div>
+                        
+                        </div>
+                        <button class="projectButton"> Open </button>
+                    </div>  
+                <%}%>
+
+
+                    
+               </div>
+            </div>
+
+            <div id="right">
+               
+                    <div id="projectForm">
+                        <h2 style="color :  rgb(82, 65, 65);">Create Project</h2>
+                        <form method="post" action="/project/add">
+                            Project Name:<br>
+                            <input type="text" required id="projectName" class="input" name="projectName"><br>
+                            Project Description:<br>
+                            <textarea type="text" required id="projectDescription" name="projectDescription"></textarea><br>
+                          
+                            Owner : <br>
+                            <select id="ownerList" name="ownerList" multiple="multiple" style="width: 100px; overflow-y: scroll; white-space: nowrap;" required>
+                                <%for(owner of userList){%>
+                                    <option value="<%=owner._id%>">
+                                        <%=owner.name%>
+                                    </option>
+                                    <%}%>
+                            </select><br>
+                            Author : <br>
+                            <select id="authorList" name="authorList" multiple="multiple" style="width: 100%; overflow-y: scroll; white-space: nowrap;;" >
+                                <%for(author of userList){%>
+                                    <option value="<%=author._id%>">
+                                        <%=author.name%>
+                                    </option>
+                                    <%}%>
+                            </select><br>
+                       
+                            Project Type : <br>
+                            <select id="projectType" name="projectType" style="width: 100%; display: block; height: 35px;" required>
+                                <%for(techStack of techStackFields){%>
+                                    <option value="<%=techStack%>">
+                                        <%=techStack%>
+                                    </option>
+                                    <%}%>
+                            </select>
+
+                            Tech Stack : <br>
+                            <select id="techStack" name="techStack"  multiple="multiple" style="width: 100%; display: block; height: 35px;" required>
+                                <%for(projectField of projectTypeFields){%>
+                                    <option value="<%=projectField%>">
+                                        <%=projectField%>
+                                    </option>
+                                    <%}%>
+                            </select><br><br>
+                            <input id="submitBtn" type="submit"  class="input">
+                         
+                        </form>
+                </div>
+            </div>
+   
+
+
+        
+
+ 
+
+
+        <script id="flash-message">
+                    // Get the button and popup overlay elements
+                    <%if (flash.success && flash.success.length > 0) {%>
+                        new Noty({
+                            theme: 'relax',
+                            type: 'success',
+                            text: "<%=flash.success%>",
+                            layout: 'topRight',
+                            timeout: 500
+                        }).show();
+                                        <%}%>
+                                        <%if (flash.error && flash.error.length > 0) {%>
+                        new Noty({
+                            theme: 'relax',
+                            type: 'error',
+                            text: "<%=flash.error%>",
+                            layout: 'topRight',
+                            timeout: 500
+                        }).show();
+                 <%}%>
+
+
+
+                    function openReviewForm() {
+                        document.getElementById("overlay").style.display = "block";
+                         $(document).ready(function () {
+                           
+                        });
+                       
+                    }
+
+                    function closeReviewForm() {
+                            document.getElementById("overlay").style.display = "none";
+                    }
+                    //  $('#authorList').multiselect({includeSelectAllOption: true,});
+                    //  $('#ownerList').multiselect({includeSelectAllOption: true,});
+
+
+                   $(document).ready(function () {
+                        $('#authorList').select2({
+                            placeholder: 'Select Project Author',
+                            width: '100%', // Set the width of the dropdown
+                            height: '45px',
+                             templateResult: function (data, container) {
+                                if (data.selected) {
+                                    $(container).css('background-color', 'red');
+                                    $(container).css('color', '#FFF');
+                                }
+                                return data.text;
+                            }
+                           
+                        });
+                        $('#ownerList').select2({
+                            placeholder : 'Select Project Owner',
+                            width: '100%',
+                            height : '45px',
+                            
+                        });
+                        $('#techStack').select2({
+                           placeholder: 'Select Tech Used',
+                           width: '100%',
+                           height: '45px',
+                           minimumResultsForSearch: 2
+                       });
+
+                       $('#submitBtn').on('click', function () {
+                           var selectedOptions = $('#techStack').val();
+                           if (selectedOptions === null || selectedOptions.length < 2) {
+                               alert('Please select at least two options for TechStack');
+                               return false; // Prevent form submission
+                           }
+                       });
+
+                    });
+
+                   
+
+
+               
+
+
+
+
+
+
+
+                        
+
+
+
+
+
+
+                            
+            
+        </script>
+    
+    </body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

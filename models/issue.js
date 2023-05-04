@@ -38,7 +38,7 @@ const issueSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Project'
     }]
-}, { timestamps: true })
+}, { timestamps: true });
 
-const IssueSchema = mongoose.model('IssueSchema', issueSchema);
-module.exports = IssueSchema;
+const Issue = mongoose.model('Issue', issueSchema);
+module.exports = Issue;

@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Project = require('./project');
 const techStackSchema = new mongoose.Schema({
     java: {
         type: Boolean,
@@ -72,5 +73,5 @@ const techStackSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 
-const TechStackSchema = mongoose.model('TechStackSchema', techStackSchema);
-module.exports = TechStackSchema;
+const TechStack = mongoose.model('TechStack', techStackSchema);
+module.exports = TechStack;
