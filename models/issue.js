@@ -14,30 +14,28 @@ const issueSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
-    owner : [{
+    owner : {
         type : mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required : true
-    }],
+    },
     status : {
-        type : mongoose.Schema.Types.ObjectId,
-        ref : 'Status',
+        type : String,
         required : true
     },
     type: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref : 'IssueType',
+        type: String,
         required: true,
-        
     },
     author: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     }],
-    project: [{
+    project: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Project'
-    }]
+        ref: 'Project',
+        required : true,
+    }
 }, { timestamps: true });
 
 const Issue = mongoose.model('Issue', issueSchema);

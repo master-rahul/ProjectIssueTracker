@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0/js/select2.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+
+    <link rel="stylesheet" href="/css/project.css">
+</head>
+
+<body>
+    <div id="main">
+       <div id="top">
+            <h1 style="display: inline;">Project Name : <h1 style="display: inline; color: rgb(243, 247, 168);"><%=project.name%></h1></h1><br><br>
+            <h3 style="display: inline;">Project Description : <h3 style="display: inline; color: rgb(243, 247, 168);"><%=project.description%></h3></h3><br>
+            <h4 style="overflow-x: scroll; white-space: nowrap; display: inline-block; color: rgb(243, 247, 168);">Authors : &nbsp;&nbsp;
+                <%for(author of project.author){%>
+                    <div style="display :inline;border-radius: 50%;background-color: <%= getRandomColor() %>; color: white; margin-right: 10px; padding: 10px 20px;">
+                        <%=author.name%>
+                    </div>
+                <%}%>
+            </h4><br>
+            <h4  style="margin-top: -5px; overflow-x: scroll; white-space: nowrap; display: inline-block; color: rgb(243, 247, 168);">Owners : &nbsp;&nbsp;
+                <%for(author of project.owner){%>
+                    <div
+                        style="display :inline;border-radius: 50%;background-color: <%= getRandomColor() %>; color: white; margin-right: 10px; padding: 10px 20px;">
+                        <%=author.name%>
+                    </div>
+                    <%}%>
+            </h4><br>
+            <h4  style="margin-top: -5px; overflow-x: scroll; white-space: nowrap; display: inline-block; color: rgb(243, 247, 168);">Application Type :  
+                 <div style=" width: 200px;overflow-x: scroll; display: inline;white-space: nowrap; color: white; background-color: rgb(152, 107, 55); margin-top: 5px; border-radius: 5px; font-size: 20px; text-align: center; height: 40px; text-align: center; align-items: center; padding: 15px; border-radius: 50%;">
+
+                                    <% if (project.type.webApplication) { %>
+                                        Web Application
+                                        <% } %>
+                                    
+                                            <% if (project.type.desktopApplication) { %>
+                                                Desktop Application
+                                                <% } %>
+                                    
+                                                    <% if (project.type.androidApplication) { %>
+                                                        Android Application
+                                                        <% } %>
+                                    
+                                                            <% if (project.type.iosApplication) { %>
+                                                                IOS Application
+                                                                <% } %>
+                                    
+                                                                    <% if (project.type.emmbeddedApplication) { %>
+                                                                        Embedded Application
+                                                                        <% } %>
+                                    
+                                                                            <% if (project.type.networkApplication) { %>
+                                                                                Network Application
+                                                                                <% } %>
+                                    
+                                                                                    <% if (project.type.legacyApplication) { %>
+                                                                                        Legacy Application
+                                                                                        <% } %>
+                                    
+                                                                                            <% if (project.type.restAPI) { %>
+                                                                                                REST API
+                                                                                                <% } %>
+                                    
+
+                                </div>
+
+            </h4><br>
+            <h4
+                style="margin-top: -5px; overflow-x: scroll; white-space: nowrap; display: inline-block; color: rgb(243, 247, 168); ">
+                TechStack : &nbsp; &nbsp;
+
+                    <% if (project.techStack.java) { %>
+                       <div style=" color : white;display: inline; background-color: <%= getRandomColor() %>; margin-right: 10px; padding : 10px; border-radius: 50%;"> Java</div>
+                        <% } %>
+            
+                            <% if (project.techStack.html) { %>
+                                <div style=" color : white;background-color: <%= getRandomColor() %>; margin-right: 10px;display: inline; padding : 10px; border-radius: 50%;">Html</div>
+                                <% } %>
+            
+                                    <% if (project.techStack.css) { %>
+                                        <div style=" color : white;background-color: <%= getRandomColor() %>; margin-right: 10px;display: inline; padding : 10px; border-radius: 50%;">Css</div>
+                                        <% } %>
+            
+                                            <% if (project.techStack.node) { %>
+                                                <div style=" color : white;background-color: <%= getRandomColor() %>; margin-right: 10px;display: inline; padding : 10px; border-radius: 50%;">Node</div>
+                                                <% } %>
+            
+                                                    <% if (project.techStack.express) { %>
+                                                        <div style=" color : white;background-color: <%= getRandomColor() %>; margin-right: 10px;display: inline; padding : 10px; border-radius: 50%;">Express</div>
+                                                        <% } %>
+            
+                                                            <% if (project.techStack.mongo) { %>
+                                                            <div style=" color : white;background-color: <%= getRandomColor() %>; margin-right: 10px;display: inline; padding : 10px; border-radius: 50%;"> Mongo</div>
+                                                                <% } %>
+            
+                                                                    <% if (project.techStack.mongoose) { %>
+                                                                        <div style=" color : white;background-color: <%= getRandomColor() %>; margin-right: 10px;display: inline; padding : 10px; border-radius: 50%;">Mongoose</div>
+                                                                        <% } %>
+            
+                                                                            <% if (project.techStack.ejs) { %>
+                                                                            <div style=" color : white;background-color: <%= getRandomColor() %>; margin-right: 10px;display: inline; padding : 10px; border-radius: 50%;">EJS</div>
+                                                                                <% } %>
+                                <% if (project.techStack.passport) { %>
+                                    <div style=" color : white;background-color: <%= getRandomColor() %>; margin-right: 10px;display: inline; padding : 10px; border-radius: 50%;">Passport</div>
+                                    <% } %>
+                                    <% if (project.techStack.python) { %>
+                                        <div style=" color : white;background-color: <%= getRandomColor() %>; margin-right: 10px;display: inline; padding : 10px; border-radius: 50%;">Python</div>
+                                        <% } %>
+                                        <% if (project.techStack.redis) { %>
+                                            <div style=" color : white;background-color: <%= getRandomColor() %>; margin-right: 10px;display: inline; padding : 10px; border-radius: 50%;">Redis</div>
+                                            <% } %>
+
+                                            <% if (project.techStack.nginx) { %>
+                                            <div style=" color : white;background-color: <%= getRandomColor() %>; margin-right: 10px;display: inline; padding : 10px; border-radius: 50%;"> NGNIX</div>
+                                                <% } %>
+                                                <% if (project.techStack.websocket) { %>
+                                                    <div style="background-color: <%= getRandomColor() %>; margin-right: 10px;display: inline; padding : 10px; border-radius: 50%;">WebSocket</div>
+                                                    <% } %>
+                                                   
+
+            
+            
+            
+            
+            </h4><br>
+           
+
+                <section id="feed-issue">   
+                    <h2>Create Issue : </h2>
+                    <div id="create-issue">
+                        <form id="issueForm" action="/issue/add/<%=projectId%>" method="POST">
+                            <div id="form-left">
+                                    <input type="hidden" name="projectId" value="<%=project._id%>">
+                                     Name : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="title" style="width: 80%; height: 30px; border-radius: 10px; background-color: rgb(228, 248, 192); border: none; padding : 2px 10px; color : black"><br>
+                                    Description :
+                                   <textarea name="description" required style="width : 80%; height : 82%; vertical-align: top; margin-top : 5px; font-size: 15px;"></textarea>
+                            </div>
+                            <div id="form-right">
+                                <div style="display : flex; justify-content: space-between; margin-bottom: 5px;">
+                                    <div style="display : flex; width: 20%;">Owner :</div>
+                                    <div style="display : inline-block; width: 100%; ">
+                                        <select id="owner" name="owner">
+                                            <%for(owner of userList){%>
+                                                <option value="<%=owner._id%>">
+                                                    <%=owner.name%>
+                                                </option>
+                                                <%}%>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div style="display : flex; justify-content: space-between; margin-bottom: 5px;">
+                                    <div style="display : flex; width: 20%;">Issue Type :</div>
+                                    <div style="display : inline-block; width: 100%; ">
+                                        <input type="text" id="my-input" list="issueType" name="issueType" style="width: 80%; height: 30px; color : black">
+                                        <datalist id="issueType" name="issueType" required style="width: 80%; height: 30px; color : black">
+                                            <%for(issue of issueTypeList){%>
+                                                <option value="<%=issue%>">
+                                                    <%=issue%>
+                                                </option>
+                                                <%}%>
+                                        </datalist>
+                                    </div>
+                                </div>
+                                <div style="display : flex; justify-content: space-between; margin-bottom: 0px;">
+                                    <div style="display : flex; width: 20%;">Status :</div>
+                                    <div style="display : inline-block; width: 100%; ">
+                                
+                                        <select id="status" name="status" disabled style="color: black; height: 30px; width: 80%;">
+                                            <option value="Open">Open</option>
+                                            <option value="Pending">Pending</option>
+                                            <option value="OnHold">OnHold</option>
+                                            <option value="Completed">Completed</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="submit" style="color: black; width: 100px; height: 50px; margin-left: -60px;"> 
+
+                        </form>
+
+                     
+                    </div>
+                    
+                
+                    <div id="issue-container">
+                       
+                        <ul style="list-style: none">
+                           
+
+                            <%for(issue of issueList){%>
+                                <div class="issueItem">
+                                    <div>
+                                    <div class="contentLeft">
+                                        <div class="issueName">
+                                            <%=issue.title%>fkjsadfhksjdafhkjsahfkjsahfkjshfjkdshfkjsdhkfjhaskjfhsakjfhsakhfkljashfkajsdhfashfkjshdkfjshakfjhskfshakjfhdskjfhsadkjfhasjkfhsakjfhaksjdfhaskjfhdsakjfhaskhfkdshfkj
+                                        </div>
+                                        <div class="issueDescription">
+                                            <%=issue.description%>
+                                        </div>
+                                    </div>
+                                    <div class="contentRight">
+                                        <div class="createdDate" style="vertical-align: top;">
+                                            Created : <%=issue.createdAt.toLocaleDateString()%>
+                                        </div>
+                                    
+                                        <div class="author">
+                                            &nbsp;Authors :
+                                            <%for(author of issue.author) { %>
+                                                <div style="display: inline; background-color: <%= getRandomColor() %>; padding : 1px 10px; color : white; margin : 10px 5px; border-radius : 5px; font-size: 15px; font-weight: 400; ">
+                                                    <%= author.name %>
+                                                   
+                                                </div>
+
+                                                <%}%>
+                                                <br>
+                                                Owner : <div
+                                                    style="display: inline; background-color: <%= getRandomColor() %>; padding : 1px 10px; color : white; margin : 10px 5px; border-radius : 5px; font-size: 15px; font-weight: 400; ">
+                                                    <%= issue.owner.name %>
+                                                </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div id="updateComments">
+                                        <form action="/issue/comment" class="issue-comment" id="issue-comment" method="POST">
+                                            <input type="hidden" name="issueId" value="<%=issue._id%>">
+                                            Comment : <input type="text" name="content" id="comment-text" placeholder="Enter Your Comment.." required
+                                                style="height: 20px; width: 400px; padding: 2px 5px;">
+                                            &nbsp;&nbsp;Author : <select id="owner" name="owner">
+                                                <%for(owner of userList){%>
+                                                    <option value="<%=owner._id%>">
+                                                        <%=owner.name%>
+                                                    </option>
+                                                    <%}%>
+                                            </select>
+                                            <button type="submit">Send</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            <%}%>
+                        </ul>
+                    </div>
+                       
+                            <!-- <li id="issue" class="issue-list">
+                                    <a class="issue-delete" href="/issue/delete/" id="issue-delete"
+                                        style="border: blue solid 2px; padding : 1px 5px; border-radius: 15%; box-shadow: 2px 2px 1px blue;">X</a>
+                                    &nbsp;&nbsp;
+                                CONTENT:
+
+                            <div style="padding: 5px; margin-left: 30px;">
+                                <form action="/issue/comment" class="issue-comment" id="issue-comment"
+                                    method="POST">
+                                    <input type="hidden" name="postId" value="">
+                                    <input type="text" name="content" id="comment-text-"
+                                        placeholder="Enter Your Comment.." required
+                                        style="height: 20px; width: 400px; padding: 2px 5px;">
+                                    <button type="submit">Send</button>
+                                </form>
+                            </div>
+
+                            <div class="issue-comments-list">
+                                <ul id="issue-comments">
+                                    <li id="comment class="comment-list" style="border: skyblue solid 1px;">
+                                        <a href="/comment/delete/" class="comment-delete" id="comment-delete" style="border: blue solid 1px; padding : 0px 4px; border-radius: 15%; box-shadow: 2px 2px 1px blue;">X</a>&nbsp;&nbsp;
+                                        Comment Content             
+                                        <div style="display: inline; padding: 5px; margin-left: 400px;"><small><i>By : <u>Username</u>, UpdatedAt : <u>Date</u></i></small></div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <br>
+                        </ul> -->
+                   
+                </section>
+
+
+
+            
+            </div>
+        </div>
+      
+    </div>
+    <script id="flash-message">
+                // Get the button and popup overlay elements
+        <%if (flash.success && flash.success.length > 0) {%>
+            new Noty({
+                theme: 'relax',
+                type: 'success',
+                text: "<%=flash.success%>",
+                layout: 'topRight',
+                timeout: 500
+            }).show();
+                                    <%}%>
+                                    <%if (flash.error && flash.error.length > 0) {%>
+            new Noty({
+                theme: 'relax',
+                type: 'error',
+                text: "<%=flash.error%>",
+                layout: 'topRight',
+                timeout: 500
+            }).show();
+        <%}%>
+          $(document).ready(function () {
+                $('#owner').select2({
+                  placeholder: 'Select Project Author',
+                  width: '80%', // Set the width of the dropdown
+                  height: '45px',
+                  templateResult: function (data, container) {
+                      if (data.selected) {
+                          $(container).css('background-color', 'red');
+                          $(container).css('color', '#FFF');
+                      }
+                      return data.text;
+                  }
+
+              });
+            
+            });
+    </script>
+
+</body>
+
+</html>

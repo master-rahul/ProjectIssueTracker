@@ -2,6 +2,7 @@ const TechStack = require('../models/techStack');
 const User = require('../models/user');
 const ProjectType = require('../models/projectType');
 const Project = require('../models/project');
+const Issue = require('../models/issue');
 module.exports.home = async function(request, response) {
     var schema = TechStack.schema;
     var projectTypeFields = Object.keys(schema.obj);
@@ -14,14 +15,10 @@ module.exports.home = async function(request, response) {
         model: 'ProjectType',
         match: { $or: [{ webApplication: true }, { desktopApplication: true }, { androidApplication: true }, { iosApplication: true }, { emmbeddedApplication: true }, { networkApplication: true }, { legacyApplication: true }, { restAPI: true }] }
     })
-    console.log(projectList)
-    // projectList.forEach((project) => {
-    //     // Access the populated author data
-    //     console.log(project.author);
-    //     console.log(project.issue);
-    // });  
-      var userList = await User.find();
-    return response.render('home', { getRandomColor: getRandomColor, projectTypeFields : projectTypeFields, techStackFields : techStackFields, projectList : projectList, userList : userList});
+    console.log(projectList);
+    var userList = await User.find();
+    var issueList = await Issue.find({ project  : request.params.id})
+    return response.render('home', { getRandomColor: getRandomColor, projectTypeFields : projectTypeFields, techStackFields : techStackFields, projectList : projectList, userList : userList, issueList : issueList});
 }
 const getRandomColor = () => {
    
