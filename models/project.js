@@ -19,14 +19,12 @@ const projectSchema = new mongoose.Schema({
         ref : 'User',
         required: true
     }],
-    techStack :{
-        type : mongoose.Schema.Types.ObjectId,
-        ref : 'TechStack',
+    techStack :[{
+        type : String,
         required : true
-    },
+    }],
     type: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'ProjectType',
+        type: String,
         required: true,
     },
     author : [{

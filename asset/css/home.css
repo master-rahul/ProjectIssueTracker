@@ -204,3 +204,52 @@ body{
     border: 1px solid white;
    
 }
+
+#filterProject {
+    width:100%;
+    height: 85px;
+    padding: 10px 10px;
+   color : white;
+   border: 1px solid white;
+   margin-bottom: 15px;
+   border-radius: 20px;
+    background-color: rgb(75, 37, 110);
+    box-shadow: 6px 6px 3px rgb(8, 8, 120);
+
+
+}
+#filterProject *{
+    color : white;
+}
+
+#filterProjectType,#searchName,
+#filterOwner,
+#filterAuthor,
+#filterStatus {
+    color: black;
+    width: 22%;
+    height: 30px;
+    vertical-align: middle;
+    border-radius: 20px;
+    background-color: bisque;
+    margin-top: -2px;
+    margin-right: 0px;
+    border: none;
+    margin-right: 5px;
+}
+#filterAuthor{
+    overflow: hidden;
+}
+#filterForm input[type="submit"] {
+    width: 100px;
+    height: 30px;
+    margin-top: 5px;
+    border-radius: 20px;
+    background-color: rgb(24, 193, 24);
+    border: 1px solid white;
+}
+
+#filterForm input[type="submit"]:hover {
+    background-color: brown;
+    cursor: pointer;
+}

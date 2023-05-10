@@ -58,40 +58,7 @@
                         Application Type :
                         <div
                             style="  overflow-x: scroll;width: 200px;overflow-x: scroll; display: inline;white-space: nowrap; color: white; background-color: rgb(152, 107, 55); margin-top: 5px; border-radius: 5px; font-size: 20px; text-align: center; height: 40px; text-align: center; align-items: center; padding: 15px; border-radius: 50%;">
-                
-                            <% if (project.type.webApplication) { %>
-                                Web Application
-                                <% } %>
-                
-                                    <% if (project.type.desktopApplication) { %>
-                                        Desktop Application
-                                        <% } %>
-                
-                                            <% if (project.type.androidApplication) { %>
-                                                Android Application
-                                                <% } %>
-                
-                                                    <% if (project.type.iosApplication) { %>
-                                                        IOS Application
-                                                        <% } %>
-                
-                                                            <% if (project.type.emmbeddedApplication) { %>
-                                                                Embedded Application
-                                                                <% } %>
-                
-                                                                    <% if (project.type.networkApplication) { %>
-                                                                        Network Application
-                                                                        <% } %>
-                
-                                                                            <% if (project.type.legacyApplication) { %>
-                                                                                Legacy Application
-                                                                                <% } %>
-                
-                                                                                    <% if (project.type.restAPI) { %>
-                                                                                        REST API
-                                                                                        <% } %>
-                
-                
+                            <%=project.type%>
                         </div>
                 
                     </h4><br>
@@ -99,85 +66,13 @@
                         style="overflow-x: scroll;font-size: 20px;margin-top: -5px; overflow-x: scroll; white-space: nowrap; display: inline-block; color: rgb(243, 247, 168); ">
                         TechStack : &nbsp; &nbsp;
                 
-                        <% if (project.techStack.java) { %>
+                        <% for (tech of project.techStack) { %>
                             <div
                                 style=" color : white;display: inline; background-color: <%= getRandomColor() %>; margin-right: 10px; padding : 10px; border-radius: 50%;">
-                                Java</div>
+                                <%=tech%></div>
                             <% } %>
                 
-                                <% if (project.techStack.html) { %>
-                                    <div
-                                        style=" color : white;background-color: <%= getRandomColor() %>; margin-right: 10px;display: inline; padding : 10px; border-radius: 50%;">
-                                        Html</div>
-                                    <% } %>
-                
-                                        <% if (project.techStack.css) { %>
-                                            <div
-                                                style=" color : white;background-color: <%= getRandomColor() %>; margin-right: 10px;display: inline; padding : 10px; border-radius: 50%;">
-                                                Css</div>
-                                            <% } %>
-                
-                                                <% if (project.techStack.node) { %>
-                                                    <div
-                                                        style=" color : white;background-color: <%= getRandomColor() %>; margin-right: 10px;display: inline; padding : 10px; border-radius: 50%;">
-                                                        Node</div>
-                                                    <% } %>
-                
-                                                        <% if (project.techStack.express) { %>
-                                                            <div
-                                                                style=" color : white;background-color: <%= getRandomColor() %>; margin-right: 10px;display: inline; padding : 10px; border-radius: 50%;">
-                                                                Express</div>
-                                                            <% } %>
-                
-                                                                <% if (project.techStack.mongo) { %>
-                                                                    <div
-                                                                        style=" color : white;background-color: <%= getRandomColor() %>; margin-right: 10px;display: inline; padding : 10px; border-radius: 50%;">
-                                                                        Mongo</div>
-                                                                    <% } %>
-                
-                                                                        <% if (project.techStack.mongoose) { %>
-                                                                            <div
-                                                                                style=" color : white;background-color: <%= getRandomColor() %>; margin-right: 10px;display: inline; padding : 10px; border-radius: 50%;">
-                                                                                Mongoose</div>
-                                                                            <% } %>
-                
-                                                                                <% if (project.techStack.ejs) { %>
-                                                                                    <div
-                                                                                        style=" color : white;background-color: <%= getRandomColor() %>; margin-right: 10px;display: inline; padding : 10px; border-radius: 50%;">
-                                                                                        EJS</div>
-                                                                                    <% } %>
-                                                                                        <% if (project.techStack.passport) { %>
-                                                                                            <div
-                                                                                                style=" color : white;background-color: <%= getRandomColor() %>; margin-right: 10px;display: inline; padding : 10px; border-radius: 50%;">
-                                                                                                Passport</div>
-                                                                                            <% } %>
-                                                                                                <% if (project.techStack.python) { %>
-                                                                                                    <div
-                                                                                                        style=" color : white;background-color: <%= getRandomColor() %>; margin-right: 10px;display: inline; padding : 10px; border-radius: 50%;">
-                                                                                                        Python</div>
-                                                                                                    <% } %>
-                                                                                                        <% if (project.techStack.redis)
-                                                                                                            { %>
-                                                                                                            <div
-                                                                                                                style=" color : white;background-color: <%= getRandomColor() %>; margin-right: 10px;display: inline; padding : 10px; border-radius: 50%;">
-                                                                                                                Redis</div>
-                                                                                                            <% } %>
-                
-                                                                                                                <% if
-                                                                                                                    (project.techStack.nginx)
-                                                                                                                    { %>
-                                                                                                                    <div
-                                                                                                                        style=" color : white;background-color: <%= getRandomColor() %>; margin-right: 10px;display: inline; padding : 10px; border-radius: 50%;">
-                                                                                                                        NGNIX</div>
-                                                                                                                    <% } %>
-                                                                                                                        <% if
-                                                                                                                            (project.techStack.websocket)
-                                                                                                                            { %>
-                                                                                                                            <div
-                                                                                                                                style="background-color: <%= getRandomColor() %>; margin-right: 10px;display: inline; padding : 10px; border-radius: 50%;">
-                                                                                                                                WebSocket
-                                                                                                                            </div>
-                                                                                                                            <% } %>
+                               
                 
                 
                 
@@ -252,6 +147,50 @@
                 
                     <div id="issue-container" style="margin-top: 20px;">
                         <div id="filterIssue">
+                            <form action="/issue/filter/<%=project._id%>" method="post" id="filterForm">
+                                    <input type="hidden" value="<%=project._id%>" name="projectId">
+                                    &nbsp;&nbsp;&nbsp;Issue Type : &nbsp;&nbsp;<input type="text" id="filterIssueType" list="issueTypeF" name="issueType">
+                                    <datalist id="issueTypeF" name="issueType" required >
+                                        <option value="">None</option>
+                                        <%for(issue of issueTypeList){%>
+                                             <option value="<%=issue%>">
+                                                <%=issue%>
+                                            </option>
+                                            <%}%>
+                                       
+                                    </datalist>
+                                   Issue Owner : &nbsp;&nbsp;  <select id="filterOwner" name="owner">
+                                        <option value="">None</option>
+                                    <%for(owner of userList){%>
+                                            <option value="<%=owner._id%>">
+                                                <%=owner.name%>
+                                            </option>
+                                            <%}%>
+                                           
+                                    </select>
+                                    Issue Author : &nbsp;&nbsp;<select id="filterAuthor" name="author" multiple="multiple">
+                                        <option value="">None</option>
+                                        <%for(author of userList){%>
+                                            <option value="<%=author._id%>">
+                                                <%=author.name%>
+                                            </option>
+                                            <%}%>
+                                           
+                                    </select>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                    Issue Status : &nbsp;&nbsp;<select id="filterStatus" name="status">
+                                        <option value="">None</option>
+                                        <option value="open">Open</option>
+                                        <option value="pending">Pending</option>
+                                        <option value="closed">Closed</option>
+                                        <option value="completed">Completed</option>
+                                        <option value="inProgress">InProgress</option>
+                                        
+                                    </select>
+                                    <input type="submit">
+
+
+                            </form>
                         
                         </div>
                         <ul style="list-style: none">
@@ -317,8 +256,8 @@
                                                     <%}%>
                                             </select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                             <select id="status" name="status" style="color: black; height: 30px; width: 8%;">
-                                                <option value="<%=issue.status%>"><%=issue.status%></option>
-                                                <%if(issue.status != "pending")%>
+                                               
+                                                <%if(issue.status != 'pending')%>
                                                     <option value="pending">pending</option>
                                                 <%if(issue.status != "inProgress" )%>
                                                     <option value="inProgress">inProgress</option>
@@ -326,6 +265,8 @@
                                                     <option value="completed">completed</option>
                                                 <%if(issue.status !="closed" )%>
                                                     <option value="closed">closed</option>
+                                                <%if(issue.status !="open" )%>
+                                                    <option value="closed">open</option>
                                             </select>
                                             &nbsp;&nbsp;&nbsp;&nbsp; <button type="submit">Send</button>
                                         </form>
@@ -474,6 +415,24 @@
             var editI = document.getElementById('issueId');
             editI.value = issue._id;
         }
+
+
+
+        $('#filterAuthor').select2({
+                placeholder: 'Select Project Author',
+                width: '15%', // Set the width of the dropdown
+                height: '45px',
+                color : 'black',
+                templateResult: function (data, container) {
+                    if (data.selected) {
+                        $(container).css('background-color', 'red');
+                        $(container).css('color', '#FFF');
+                        $(data).css('color', 'black');
+                    }
+                    return data.text;
+                }
+
+            });
     </script>
 
 </body>
