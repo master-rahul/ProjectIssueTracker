@@ -27,6 +27,59 @@
             <div id="left">
                 <h2 style="color : white">Project List : </h2>
                 <div id="projectList">
+
+                    <div id="filterProject">
+
+                        <form action="/" method="post" id="filterForm">
+                            &nbsp;Project Name : &nbsp;&nbsp;&nbsp;<input type="text" id="searchName" name="nameS">
+                            &nbsp;Project Type : &nbsp;&nbsp;&nbsp;<input type="text" id="filterProjectType" list="projectTypeF"
+                                name="projectType">
+                            <datalist id="projectTypeF" name="ProjectType" >
+                                <option value="">None</option>
+                                <%for(type of projectTypeFields){%>
+                                    <option value="<%=type%>">
+                                        <%=type%>
+                                    </option>
+                                    <%}%>
+                        
+                            </datalist>
+                            &nbsp;Project Owner : &nbsp;&nbsp;&nbsp;<select id="filterOwner" name="owner">
+                                <option value="">None</option>
+                                <%for(owner of userList){%>
+                                    <option value="<%=owner._id%>">
+                                        <%=owner.name%>
+                                    </option>
+                                    <%}%>
+                        
+                            </select> <br>
+                            &nbsp;Project Author : &nbsp;&nbsp;&nbsp;<select id="filterAuthor" name="author" multiple="multiple">
+                                <option value="">None</option>
+                                <%for(author of userList){%>
+                                    <option value="<%=author._id%>">
+                                        <%=author.name%>
+                                    </option>
+                                    <%}%>
+                        
+                            </select>
+                            &nbsp;Tech Stack : &nbsp;&nbsp;&nbsp;
+                            <select id="techStack1" name="techStack" multiple="multiple" style="width: 100%; display: block; height: 35px;" >
+                                <%for( techStack of techStackFields){%>
+                                    <option value="<%=techStack%>">
+                                        <%=techStack%>
+                                    </option>
+                                    <%}%>
+                            </select>
+                           
+                           
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit">
+                        
+                        
+                        </form>
+
+
+                    </div>
+
+
                     <%for(project of projectList){%>
                     <div class="project">
                         <div id="project" class="projectItem">
@@ -61,37 +114,7 @@
                                 
                                 <div style="overflow-x: scroll; white-space: nowrap; background-color: rgb(119, 83, 42); margin-top: 5px; border-radius: 15px; font-size: 16px; text-align: center;">
 
-                                    <% if (project.type.webApplication) { %>
-                                        Web Application
-                                        <% } %>
-                                    
-                                            <% if (project.type.desktopApplication) { %>
-                                                Desktop Application
-                                                <% } %>
-                                    
-                                                    <% if (project.type.androidApplication) { %>
-                                                        Android Application
-                                                        <% } %>
-                                    
-                                                            <% if (project.type.iosApplication) { %>
-                                                                IOS Application
-                                                                <% } %>
-                                    
-                                                                    <% if (project.type.emmbeddedApplication) { %>
-                                                                        Embedded Application
-                                                                        <% } %>
-                                    
-                                                                            <% if (project.type.networkApplication) { %>
-                                                                                Network Application
-                                                                                <% } %>
-                                    
-                                                                                    <% if (project.type.legacyApplication) { %>
-                                                                                        Legacy Application
-                                                                                        <% } %>
-                                    
-                                                                                            <% if (project.type.restAPI) { %>
-                                                                                                REST API
-                                                                                                <% } %>
+                                    <%=project.type%>
                                     
 
                                 </div>
@@ -136,18 +159,18 @@
                        
                             Project Type : <br>
                             <select id="projectType" name="projectType" style="width: 100%; display: block; height: 35px;" required>
-                                <%for(techStack of techStackFields){%>
-                                    <option value="<%=techStack%>">
-                                        <%=techStack%>
+                                <%for( projectField of projectTypeFields){%>
+                                    <option value="<%=projectField%>">
+                                        <%=projectField%>
                                     </option>
                                     <%}%>
                             </select>
 
                             Tech Stack : <br>
                             <select id="techStack" name="techStack"  multiple="multiple" style="width: 100%; display: block; height: 35px;" required>
-                                <%for(projectField of projectTypeFields){%>
-                                    <option value="<%=projectField%>">
-                                        <%=projectField%>
+                                <%for(  techStack of techStackFields){%>
+                                    <option value="<%=techStack%>">
+                                        <%=techStack%>
                                     </option>
                                     <%}%>
                             </select><br><br>
@@ -237,9 +260,33 @@
                            }
                        });
 
+                        $('#filterAuthor').select2({
+                           placeholder: 'Select Project Author',
+                           width: '30%', // Set the width of the dropdown
+                           height: '30px',
+                           color: 'black',
+                           
+                           templateResult: function (data, container) {
+                               if (data.selected) {
+                                   $(container).css('background-color', 'red');
+                                   $(container).css('color', '#FFF');
+                                   $(data).css('color', 'black');
+                                 
+                               }
+                               return data.text;
+                           }
+
+                       });
+                       $('#techStack1').select2({
+                           placeholder: 'Select Tech Used',
+                           width: '30%',
+                           height: '30px',
+                           minimumResultsForSearch: 2
+                       });
+
                     });
 
-                   
+                  
 
 
                

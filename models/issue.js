@@ -30,7 +30,8 @@ const issueSchema = new mongoose.Schema({
     },
     author: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
+        ref: 'User',
+        
     }],
     project: {
         type: mongoose.Schema.Types.ObjectId,

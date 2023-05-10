@@ -3,7 +3,7 @@ const router = express.Router();
 const issueController = require('../controller/issue');
 
 router.post('/add/:id', issueController.add);
-router.post('/edit/:id', issueController.edit);
+router.post('/filter/:id', issueController.filter);
 router.get('/delete/:issueId/:projectId', issueController.delete);
 router.post('/comment/:id', issueController.comment);
 router.post('/status/:id', issueController.status);
