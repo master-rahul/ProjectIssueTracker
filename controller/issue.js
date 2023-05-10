@@ -89,21 +89,18 @@ module.exports.update = async function (request, response) {
 }
 module.exports.comment = async function (request, response) {
     console.log(request.body);
+    projectId = request.body.projectId;
     try{
         const comment = await Comment.create({
             data: request.body.content,
             user: request.body.owner,
         });
-        const issue = await Issue.findByIdAndUpdate(request.params.id, {$push : {author : request.body.owner} });
-        issue = await Issue.findByIdAndUpdate(request.params.id, {$push : {comment : comment}});
-        issue = await Issue.findByIdAndUpdate(request.params.id, {status : request.body.status});
-        return response.redirect('back');
+        const issue = await Issue.findByIdAndUpdate(request.params.id, { $push: { author: request.body.owner }, $push: { comment: comment }, status : request.body.status });
+        return response.redirect(`/project/open/${projectId}`);
     }catch(error){
         request.flash('error', 'Error in Issue Name/Description (Repetition)');
-        return response.redirect('back');
+        return response.redirect(`/project/open/${projectId}`);
     }
-   
-    
 }
 module.exports.status = async function (request, response) {
     return response.send('HELLO');

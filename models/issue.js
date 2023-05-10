@@ -31,6 +31,7 @@ const issueSchema = new mongoose.Schema({
     author: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
+        unique : true
         
     }],
     project: {

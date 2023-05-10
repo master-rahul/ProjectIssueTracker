@@ -147,7 +147,7 @@
                 
                     <div id="issue-container" style="margin-top: 20px;">
                         <div id="filterIssue">
-                            <form action="/issue/filter/<%=project._id%>" method="post" id="filterForm">
+                            <form action="/project/open/<%=project._id%>" method="post" id="filterForm">
                                     <input type="hidden" value="<%=project._id%>" name="projectId">
                                     &nbsp;&nbsp;&nbsp;Issue Type : &nbsp;&nbsp;<input type="text" id="filterIssueType" list="issueTypeF" name="issueType">
                                     <datalist id="issueTypeF" name="issueType" required >
@@ -246,6 +246,7 @@
                                        <div style="text-align: center;">
                                         <form action="/issue/comment/<%=issue._id%>" class="issue-comment"  method="POST">
                                             <input type="hidden" name="issueId" value="<%=issue._id%>">
+                                            <input type="hidden" name="projectId" value="<%=project._id%>">
                                             Comment : &nbsp;&nbsp;&nbsp;<input type="text" name="content" id="comment-text" placeholder="Enter Your Comment.." required
                                                 style="height: 20px;  padding: 2px 5px;">
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Author : &nbsp;&nbsp;&nbsp;&nbsp; <select id="owner" name="owner">
@@ -256,7 +257,7 @@
                                                     <%}%>
                                             </select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                             <select id="status" name="status" style="color: black; height: 30px; width: 8%;">
-                                               
+                                                <option value="<%=issue.status%>"><%=issue.status%></option>
                                                 <%if(issue.status != 'pending')%>
                                                     <option value="pending">pending</option>
                                                 <%if(issue.status != "inProgress" )%>
