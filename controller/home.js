@@ -15,7 +15,7 @@ module.exports.home = async function(request, response) {
         model: 'ProjectType',
         match: { $or: [{ webApplication: true }, { desktopApplication: true }, { androidApplication: true }, { iosApplication: true }, { emmbeddedApplication: true }, { networkApplication: true }, { legacyApplication: true }, { restAPI: true }] }
     })
-    console.log(projectList);
+    
     var userList = await User.find();
     var issueList = await Issue.find({ project  : request.params.id})
     return response.render('home', { getRandomColor: getRandomColor, projectTypeFields : projectTypeFields, techStackFields : techStackFields, projectList : projectList, userList : userList, issueList : issueList});

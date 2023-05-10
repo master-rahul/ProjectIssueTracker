@@ -32,8 +32,8 @@ body{
     padding: 20px 20px;
     border : 3px solid rgb(228, 232, 230);
     border-radius: 5px;
-    /* box-shadow: 5px 5px 2px blue; */
-    backdrop-filter: blur(10px);
+    box-shadow: 5px 5px 2px rgb(14, 14, 85);
+    background-color: rgb(45, 45, 198, 0.5);
 }
 .project{
     display: flex;
@@ -49,6 +49,7 @@ body{
     box-shadow: 10px 10px 5px blue;
     border-radius: 10px;
     display: flex;
+    box-shadow: 5px 5px 2px rgb(14, 14, 85);
     
 }
 .projectButtonLink{
@@ -79,23 +80,24 @@ body{
 .projectName{
     width: 100%;
     color : white;
-    font-size: 20px;
+    font-size: 18px;
     height: 20%;
     overflow-x: scroll;
     white-space: nowrap;
     padding-left: 5px;
 }
 .projectDescription {
-    height:60%;
+    height:65%;
     color: rgb(69, 62, 62);
     border: 1px solid white;
     overflow-y: scroll;
     margin-top: 5px;
-    border-radius: 5px;
-    padding-left: 5px;
-    /* background-color: antiquewhite; */
+    border-radius:20px;
+    padding: 5px 10px;
+    background-color: rgb(149, 132, 110, 0.3);
     font-size: 16px;
     color : white;
+   
     
 }
 .issues{
@@ -130,7 +132,7 @@ body{
     white-space: nowrap;
     padding-left: 5px;
     border : 1px solid white;
-    border-radius: 5px;
+    border-radius: 20px;
 }
 
 .author {
@@ -140,7 +142,7 @@ body{
     border: 1px solid white;
     /* Enable vertical overflow and add scrollbar when necessary */
     margin-top: 5px;
-    border-radius: 5px;
+    border-radius: 20px;
     padding-left: 5px;
     /* background-color: antiquewhite; */
     font-size: 14px;
@@ -149,6 +151,7 @@ body{
     color : white;
     font-size: 15px;
     font-weight: 700;     
+    background-color: rgb(121, 46, 191, 0.3);
 }
 
 .author div {

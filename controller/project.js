@@ -4,9 +4,8 @@ const ProjectType = require('../models/projectType');
 const Project = require('../models/project');
 const IssueType = require('../models/issueType');
 const Issue = require('../models/issue');
-
+const Comment = require('../models/comment');
 module.exports.add = async function (request, response) {
-    console.log(request.body);
     var techStackObject = {};
     var projectTypeObject = {};
     projectTypeObject[request.body.projectType] = true;
@@ -57,8 +56,20 @@ module.exports.open = async function (request, response) {
     schema1 = IssueType.schema;
     var issueTypeList = Object.keys(schema1.obj);
     var userList = await User.find();
-    var issueList = await Issue.find({project : request.params.id}).populate('author owner');
-    console.log(issueList);
+    var issueList = await Issue.find({project : request.params.id}).populate('author owner').populate({path : 'comment', options : {
+        populate : 'user'
+    }
+    });
+    issueList.sort((a, b) => {
+        const statusOrder = {
+            open: 1,
+            inProgress: 2,
+            pending: 3,
+            closed: 5,
+            completed: 4,
+        };
+        return statusOrder[a.status] - statusOrder[b.status];
+    });
     return response.render('project', { projectId : request.params.id, getRandomColor: getRandomColor, projectTypeFields: projectTypeFields, techStackFields: techStackFields, project: project, userList: userList, issueTypeList : issueTypeList, issueList : issueList });
     //return response.render("project");
 }
@@ -72,13 +83,19 @@ module.exports.delete = async function (request, response) {
     return response.send("HELLO");
 }
 
+// const getRandomColor = () => {
+
+//     var letters = '0123456789ABCDEF';
+//     var color = '#';
+//     for (var i = 0; i < 6; i++) {
+//         color += letters[Math.floor(Math.random() * 16)];
+//     }
+//     return color;
+
+// };
 const getRandomColor = () => {
-
-    var letters = '0123456789ABCDEF';
-    var color = '#';
-    for (var i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-
+    const colors = [ "green", "orange", "lightgreen", "silver", "grey", "brown"]; // light blue, orange, parrot
+    return colors[Math.floor(Math.random() * colors.length)];
+    // , , ,
+    //
 };

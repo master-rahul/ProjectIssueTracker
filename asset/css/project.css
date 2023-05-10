@@ -3,14 +3,17 @@ body {
     background: url('/images/todo_background.jpg');
     background-position: center;
     background-size: cover;
+    /* background-color: rgb(9, 129, 145); */
+    
 }
 
 #main {
     height: auto;
     width: 100vw;
-    min-width: 1000px;
+    min-width: 1300px;
     min-height: 800px;
     display: flex;
+  
 }
 
 #top{
@@ -18,25 +21,36 @@ body {
     height: 100%;
     min-height: 700px;
     display: inline-block;
-    padding: 30px 60px;
-    border-right : 1px solid white;
-    border-left: 1px solid white;
+    padding: 30px 30px;
     margin-left: 5%;
     color : white;
+    border-left: 0.5px solid white;
+    border-right: 0.5px solid white;
+    background-color: rgba(1, 71, 184, 0.4);
+    backdrop-filter: blur(5px);
+}
+#top h1{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+#top h3{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#top h4{
+    font-family: 'Courier New', Courier, monospace;
 }
 #feed-issue{
     margin-top: 20px;
-    border : 1px solid white;
     width: 100%;
     min-height: 800px;
     height: 70vh;
-    padding: 0px 20px;
+    padding: 0px 0px;
     
 }
 #feed-issue form textarea {
     width: 100%;
     height: 80px;
-    border: 1px solid white;
+    border: 0.5px solid white;
+    border-radius: 20px;
     border-radius: 15px;
     padding: 10px 15px;
     font-size: 16px;
@@ -45,8 +59,14 @@ body {
 #create-issue{
     padding: 10px;
     height: 130px;
-    width: 100%;
-    border: 1px solid white;
+    width: 83%;
+    border: 0.5px solid white;
+    border-radius: 20px;
+    box-shadow: 8px 8px 5px rgb(62, 35, 87);
+    background-color: rgba(52, 74, 86, 0.6);
+    padding-bottom: 20px;
+    display: inline-block;
+
    
 }
 #issueForm{
@@ -56,15 +76,23 @@ body {
     display: flex;
     color : white;
 }
+#formSub{
+    margin-top: 2%;color: white;font-size: 16px; width: 80px; height: 50px; margin-left: -60px; background-color: rgb(41, 57, 116); border-radius: 10px;
+    border: 0.5px solid white;
+}
+#formSub:hover{
+    cursor: pointer;
+        background-color: rgb(135, 73, 190);
+}
 #form-left{
     height: 90%;
-    width: 60%;
+    width: 56%;
     display: inline-block;
     padding: 0px 5px;
 }
 #form-right{
     height: 100%;
-    width: 40%;
+    width: 44%;
     display: inline-block;
     padding: 0px 5px;
 }
@@ -77,19 +105,30 @@ body {
     color: rgb(45, 44, 41);
 }
 #issue-container{
-    min-height: 550px;
+    min-height: 650px;
+    max-height: 650px;
     width: 100%;
-    margin-top: 5px;
-    border : 1px solid white;
+    margin-top: 10px;
+    border : 0.5px solid white;
+    border-radius: 20px;
+    box-shadow: 10px 10px 7px rgb(62, 35, 87);
+    background-color: rgba(57, 89, 107, 0.2);
+    overflow-y: scroll;
+
 }
 .issueItem{
     margin-top: 5px;
     height: auto;
-    min-height: 150px;
+    min-height: 160px;
     width: 98%;
     padding: 5px 10px;
-    border: 1px solid white;
+    border: 1px solid rgb(254, 253, 255);
     margin-right: 10px;
+    border-radius: 20px;
+    box-shadow: 6px 6px 4px rgb(22, 40, 82);
+    margin-top: 10px;
+    background-color: rgba(71, 71, 198, 0.3);
+    margin-left: -10px;
    
 }
 
@@ -98,6 +137,7 @@ body {
     width: 60%;
     padding: 10px 10px;
     display: inline-block;
+    
 }
 
 .issueName {
@@ -108,20 +148,23 @@ body {
     overflow-x: scroll;
     white-space: nowrap;
     padding-left: 5px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-bottom: 10px;
 }
 
 .issueDescription {
-    height: 60px;
-    color: rgb(69, 62, 62);
-    border: 1px solid white;
+    height: 80px;
+    color: rgb(194, 190, 190);
+    border: 0.5px solid white;
     overflow-y: scroll;
     margin-top: 5px;
-    border-radius: 5px;
-    padding-left: 5px;
-    /* background-color: antiquewhite; */
+    border-radius: 10px;
+    padding: 2px 10px;
+    background-color: rgb(82, 109, 184, 0.3);
     font-size: 16px;
     color: white;
-
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 16px;
 }
 
 
@@ -135,6 +178,74 @@ body {
     color: white;
     font-size: 16px;
     font-weight: 700;
+   
+}
+.contentRightR{
+    margin-top: 35px;
+    width: 8%;
+    height: 100%;
+    display: inline-block;
+    border-radius : 10px;
+    vertical-align: top;
+}
+.editIssue{
+    height: 38px;
+    width: 100%;
+    margin-top: 5px;
+}
+.editIssue button:hover{
+    cursor: pointer;
+    background-color: green;
+}
+.deleteIssue button:hover {
+    cursor: pointer;
+    background-color: green;
+}
+.editIssue button{
+    width: 100%;
+    height: 40px;
+    background-color: yellow;
+    font-family: monospace;
+    border : 1px solid black;
+    color : black;
+    font-size: 15px;
+    border-radius: 10px;
+    font-weight: 700;
+
+   
+}
+.deleteIssue button{
+    width: 100%;
+        height: 38px;
+        background-color: red;
+        font-family: monospace;
+        border: 1px solid black;
+        color: black;
+        font-size: 15px;
+        border-radius: 10px;
+        font-weight: 700;
+}
+.deleteIssue{
+    height: 40px;       
+    width: 100%;
+    margin-top: 5px;
+}
+.issueDisplay{
+    display: inline;
+    height: 30px;
+    padding: 2px 20px;
+    width: 100px;
+    border-radius: 20px;
+    background-color: whitesmoke;
+    color : black;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 18px;
+    font-weight: 700;
+    overflow-x: scroll;
+    text-transform: capitalize;
+
 }
 
 .createdDate {
@@ -145,18 +256,20 @@ body {
     overflow-x: scroll;
     white-space: nowrap;
     padding-left: 5px;
-    border: 1px solid white;
-    border-radius: 5px;
+    border: 0.5px solid white;
+    border-radius: 10px;
 }
+
 
 .author {
     width: 100%;
     height: 60px;
     color: rgb(69, 62, 62);
-    border: 1px solid white;
+    border: 0.5px solid white;
+    border-radius: 20px;
     /* Enable vertical overflow and add scrollbar when necessary */
     margin-top: 5px;
-    border-radius: 5px;
+    border-radius: 10px;
     padding-left: 5px;
     /* background-color: antiquewhite; */
     font-size: 14px;
@@ -171,22 +284,79 @@ body {
     display: block;
     margin-right: 10px;
 }
-#updateComments{
+.updateComments{
     margin-left: 10px;
+    background-color: rgb(46, 46, 151);
+ 
 }
-#updateComments form input{
-    min-width: 60%;
+.updateComments div form input{
+    min-width: 45%;
     min-height: 30px;
     background-color: rgb(235, 249, 178);
     color : black;
     border: none;
     border-radius: 10px;
 }   
-#updateComments form select {
-    min-width: 15%;
+.updateComments  div form select {
+    min-width: 13%;
     min-height: 30px;
     background-color: rgb(235, 249, 178);
     color: black;
     border: none;
     border-radius: 10px;
+}
+.updateComments div form button {
+    min-width: 5%;
+    min-height: 30px;
+    background-color: rgb(235, 249, 178);
+    color: black;
+    border: none;
+    border-radius: 10px;
+}
+.updateComments div form button:hover {
+    min-width: 5%;
+    min-height: 30px;
+    background-color: rgb(162, 197, 22);
+    color: black;
+    border: none;
+    border-radius: 10px;
+}
+.updateComments{
+    border: 0.5px solid white;
+       padding: 10px 10px;
+        border-radius: 20px;
+        width: 97%;
+}
+
+#commentList{
+    width: 97%;
+    max-height: 160px;
+    min-height: 0px;
+    border: 1px solid white;
+    padding: 10px 10px;
+    margin-top: 5px;
+    border-radius: 20px;
+    margin-left: 11px;
+    overflow-y: scroll;
+    margin-bottom: 10px;
+}
+#commentList div{
+    width: 60%;
+}
+#filterIssue{
+    width: 95%;
+    height : 50px;
+    border: 0.5px solid white;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 2.5%;
+}
+#issue-comments li {
+    background-color: blueviolet;margin-left: -45px; margin-right: -5px;margin-bottom: 3px;display: flex; justify-content: space-between;text-align: justify; border: 0.5px solid white; padding: 2px 5px; border-radius: 10px;
+
+}
+#issueForm #form-right div select{
+    display: inline-block;
+    border-radius: 20px; border: none; width: 80%; height: 30px; color : black;background-color: rgb(232, 240, 216);
 }
