@@ -3,42 +3,45 @@ const User = require('./user');
 const Project = require('./project');
 const IssueType = require('./issueType');
 const Status = require('./status');
+const Comment = require('./comment');
 const issueSchema = new mongoose.Schema({
     title: {
         type: String,
         required: true,
-        unique: true
+        
     },
     description: {
         type: String,
         required: true,
-        unique: true
+       
     },
-    owner : [{
+    owner : {
         type : mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required : true
-    }],
+    },
     status : {
-        type : mongoose.Schema.Types.ObjectId,
-        ref : 'Status',
+        type : String,
         required : true
     },
     type: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref : 'IssueType',
-        required: true,
+        type: String,
         
     },
     author: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     }],
-    project: [{
+    project: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Project'
+        ref: 'Project',
+        required : true,
+    },
+    comment :[{
+        type : mongoose.Schema.Types.ObjectId,
+        ref : 'Comment'
     }]
-}, { timestamps: true })
+}, { timestamps: true });
 
-const IssueSchema = mongoose.model('IssueSchema', issueSchema);
-module.exports = IssueSchema;
+const Issue = mongoose.model('Issue', issueSchema);
+module.exports = Issue;
