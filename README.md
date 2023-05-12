@@ -81,36 +81,36 @@ ProjectIssueTracker.
 │   ├── css
 ├── node-modules
 ├── config
-    ├── mongoose.js
-    └── customMiddleware.js
+│   ├── mongoose.js
+│   └── customMiddleware.js
 ├── controller
-    ├── home.js
-    ├── issue.js
-    └── project.js
+│   ├── home.js
+│   ├── issue.js
+│   └── project.js
 ├── index.js
 ├── models
-    ├── comment.js
-    ├── issue.js
-    ├── issueType.js
-    ├── project.js
-    ├── projectType.js
-    ├── staus.js
-    ├── techStack.js
-    └── user.js
+│   ├── comment.js
+│   ├── issue.js
+│   ├── issueType.js
+│   ├── project.js
+│   ├── projectType.js
+│   ├── staus.js
+│   ├── techStack.js
+│   └── user.js
 ├── package-lock.json
 ├── package.json
 ├── readme.md
 ├── route
-    ├── route.js
-    ├── issue.js
-    └── project.js
+│   ├── route.js
+│   ├── issue.js
+│   └── project.js
 └── views
-    ├── admin.ejs
-    └── emplyoyeeHome.ejs
-    ├── employeeReview.ejs
-    └── employeeView.ejs
-    ├── login.ejs
-    └── register.ejs    
+│   ├── admin.ejs
+│   └── emplyoyeeHome.ejs
+│   ├── employeeReview.ejs
+│   └── employeeView.ejs
+│   ├── login.ejs
+│   └── register.ejs    
 ```
 
 
