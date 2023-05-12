@@ -1,8 +1,11 @@
-const mongoose = require('mongoose');
-const User = require('./user');
-const Issue = require('./issue');
-const ProjectType = require('./projectType');
-const TechStack = require('./techStack');
+const mongoose = require('mongoose');               // to fecth mongoose module
+const User = require('./user');                     // to fetch user model
+const Issue = require('./issue');                    // to fetch issue model
+const ProjectType = require('./projectType');          // to fetch projecType model
+const TechStack = require('./techStack');                  // to fetch techStack model
+
+
+//This schema is used to store the data for a project along with the issueList, author, owner, type.
 const projectSchema = new mongoose.Schema({
     name : {
         type : String,
@@ -38,5 +41,5 @@ const projectSchema = new mongoose.Schema({
 }, {timestamps : true});
 
 const Project = mongoose.model('Project', projectSchema);
-module.exports = Project;
+module.exports = Project;                   // Exporting the Schema for global access.
 

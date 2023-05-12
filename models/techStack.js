@@ -1,5 +1,7 @@
-const mongoose = require('mongoose');
-const Project = require('./project');
+const mongoose = require('mongoose');      // to fetch mongoose module. 
+const Project = require('./project');       // to fetch project module.
+
+// This schema is used to store the technologies used in a particular project.
 const techStackSchema = new mongoose.Schema({
     java: {
         type: Boolean,
@@ -74,4 +76,4 @@ const techStackSchema = new mongoose.Schema({
 
 
 const TechStack = mongoose.model('TechStack', techStackSchema);
-module.exports = TechStack;
+module.exports = TechStack;           // Exporting the Schema for global access.

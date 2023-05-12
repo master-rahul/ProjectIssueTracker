@@ -1,5 +1,7 @@
-const mongoose = require('mongoose');
-const Project = require('./project');
+const mongoose = require('mongoose');               // to fetch mongoose module
+const Project = require('./project');               // to fetch project model
+
+// This schema is used to store the projectType of the model. 
 const projectTypeSchema = new mongoose.Schema({
     webApplication: {
         type: Boolean,
@@ -44,4 +46,4 @@ const projectTypeSchema = new mongoose.Schema({
 
 
 const ProjectType = mongoose.model('ProjectType', projectTypeSchema);
-module.exports = ProjectType;
+module.exports = ProjectType;           // Exporting the Schema for global access.

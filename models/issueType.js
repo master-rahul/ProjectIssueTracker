@@ -1,4 +1,6 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose');    // fetching the mongoose module.
+
+// The model is to list the types of issues that can be generated for the project.
 const issueTypeSchema = new mongoose.Schema({
     bug: {
         type: Boolean,
@@ -45,4 +47,4 @@ const issueTypeSchema = new mongoose.Schema({
 
 
 const IssueType = mongoose.model('IssueType', issueTypeSchema);
-module.exports = IssueType;
+module.exports = IssueType;    // Exporting the Schema for global access.

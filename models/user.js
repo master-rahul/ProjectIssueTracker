@@ -1,6 +1,9 @@
-const mongoose = require('mongoose');
-const Issue = require('./issue');
-const Project = require('./project');
+const mongoose = require('mongoose');       // to fetch mongoose module
+const Issue = require('./issue');           // to fetch issue model
+const Project = require('./project');       // to fetch project model
+
+
+// This schema store all the user data and the projects and issues associated to it.
 const userSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -30,4 +33,4 @@ const userSchema = new mongoose.Schema({
 }, { timestamps: true });  
 
 const User = mongoose.model('User', userSchema);
-module.exports = User;
+module.exports = User;              // Exporting the Schema for global access.

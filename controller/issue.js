@@ -1,13 +1,15 @@
-const TechStack = require('../models/techStack');
-const User = require('../models/user');
-const ProjectType = require('../models/projectType');
-const Project = require('../models/project');
-const IssueType = require('../models/issueType');
-const Issue = require('../models/issue');
-const Comment = require('../models/comment');
+const TechStack = require('../models/techStack');         // fetching TechStack Model
+const User = require('../models/user');                      // fetching user Model
+const ProjectType = require('../models/projectType');            // fetching ProjectType Model
+const Project = require('../models/project');                    // fetching Project Model    
+const IssueType = require('../models/issueType');                // fetching IssueType Model
+const Issue = require('../models/issue');                        // fetching Issue Model
+const Comment = require('../models/comment');                    // fetching Comment Model
+
+// This fucntion adds a new issue into the project.
 module.exports.add = async function(request, response){
     console.log(request.body);
-    if(request.body.edit == 'true'){
+    if(request.body.edit == 'true'){       
         const issue = await Issue.findByIdAndUpdate(request.body.issueId,{
             title: request.body.title,
             description: request.body.description,
@@ -29,6 +31,8 @@ module.exports.add = async function(request, response){
     }
     return response.redirect('back');
 }
+
+// This function/action filters out the list of issues based on issueFilter form data send via POST request.
 module.exports.filter = async function (request, response) {
     const { issueType, owner, author, status, projectId } = request.body;
 
@@ -84,9 +88,10 @@ module.exports.filter = async function (request, response) {
     return response.render('project', { projectId: request.params.id, getRandomColor: getRandomColor, projectTypeFields: projectTypeFields, techStackFields: techStackFields, project: project, userList: userList, issueTypeList: issueTypeList, issueList: issues });
     //return response.render("project");
 }
-module.exports.update = async function (request, response) {
-    return response.send('HELLO');
-}
+
+
+// This function/action adds comment in the particular issue and also updated the 
+// status of the issue based on the comment form data
 module.exports.comment = async function (request, response) {
     console.log(request.body);
     projectId = request.body.projectId;
@@ -102,21 +107,16 @@ module.exports.comment = async function (request, response) {
         return response.redirect(`/project/open/${projectId}`);
     }
 }
-module.exports.status = async function (request, response) {
-    return response.send('HELLO');
-}
-module.exports.open = async function (request, response) {
-    return response.send('HELLO');
-}
-module.exports.close = async function (request, response) {
-    return response.send('HELLO');
-}
+
+// This funciton/action deletes the Issue from issue collection and also removes the reference from the specific
+// project from the project collection.
 module.exports.delete = async function (request, response) {
     const issue = await Issue.findByIdAndDelete(request.params.issueId);
     const project = await Project.findByIdAndUpdate(request.params.projectId, {$pull : {issue : request.params.issueId}});
     return response.redirect('back');
 }
 
+// for genterating a random colur
 const getRandomColor = () => {
     const colors = ["green", "orange", "lightgreen", "silver", "grey", "brown"]; // light blue, orange, parrot
     return colors[Math.floor(Math.random() * colors.length)];
