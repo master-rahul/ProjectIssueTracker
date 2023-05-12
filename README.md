@@ -114,4 +114,7 @@ ProjectIssueTracker.
 ```
 
 
-
+# ProjectPage
+<img width="1680" alt="Screenshot 2023-04-11 at 3 00 28 PM" src="https://github.com/master-rahul/ProjectIssueTracker/blob/main/project.png">
+# IssuePage
+<img width="1680" alt="Screenshot 2023-04-11 at 3 00 28 PM" src="https://github.com/master-rahul/ProjectIssueTracker/blob/main/issue.png">
