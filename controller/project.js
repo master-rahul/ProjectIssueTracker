@@ -1,10 +1,13 @@
-const TechStack = require('../models/techStack');
-const User = require('../models/user');
-const ProjectType = require('../models/projectType');
-const Project = require('../models/project');
-const IssueType = require('../models/issueType');
-const Issue = require('../models/issue');
-const Comment = require('../models/comment');
+const TechStack = require('../models/techStack');         // fetching TechStack Model
+const User = require('../models/user');                      // fetching user Model
+const ProjectType = require('../models/projectType');            // fetching ProjectType Model
+const Project = require('../models/project');                    // fetching Project Model    
+const IssueType = require('../models/issueType');                // fetching IssueType Model
+const Issue = require('../models/issue');                        // fetching Issue Model
+const Comment = require('../models/comment');                    // fetching Comment Model
+
+
+// Used to create a new project 
 module.exports.add = async function (request, response) {
     console.log(request.body);
     
@@ -19,7 +22,7 @@ module.exports.add = async function (request, response) {
    
     return response.redirect('back');
 }
-
+// Used to open a project with all the issue under it.
 module.exports.open = async function (request, response) {
     var schema = TechStack.schema;
     var projectTypeFields = Object.keys(schema.obj);
@@ -55,7 +58,8 @@ module.exports.open = async function (request, response) {
     //return response.render("project");
 }
 
-
+// Displays the list of project based upon projectFilter form data
+// Has 5 parameters of filter.
 module.exports.filter = async function (request, response) {
     const { issueType, owner, author, status, projectId } = request.body;
 
@@ -123,6 +127,8 @@ module.exports.filter = async function (request, response) {
 //     return color;
 
 // };
+
+// For generating random colors.
 const getRandomColor = () => {
     const colors = [ "green", "orange", "lightgreen", "silver", "grey", "brown"]; // light blue, orange, parrot
     return colors[Math.floor(Math.random() * colors.length)];

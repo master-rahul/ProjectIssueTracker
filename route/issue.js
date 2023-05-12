@@ -1,14 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const issueController = require('../controller/issue');
+const issueController = require('../controller/issue');     // fetching the issueController for routing the request to the action
 
-router.post('/add/:id', issueController.add);
-router.post('/filter/:id', issueController.filter);
-router.get('/delete/:issueId/:projectId', issueController.delete);
-router.post('/comment/:id', issueController.comment);
-router.post('/status/:id', issueController.status);
-router.post('/open/:id', issueController.open);
-router.post('/close/:id', issueController.close);
+router.post('/add/:id', issueController.add);                // redirecting the request to Controller for adding issue
+router.post('/filter/:id', issueController.filter);              // redirecting the request to Controller for filtering issue
+router.get('/delete/:issueId/:projectId', issueController.delete);           // redirecting the request to Controller for deleting issue
+router.post('/comment/:id', issueController.comment);                        // redirecting the request to Controller for commenting issue
 
 
-module.exports = router;
+
+module.exports = router;                 // exporting the router

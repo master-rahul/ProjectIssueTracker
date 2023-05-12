@@ -1,4 +1,6 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose'); // to fetch mongoose module
+
+// This schema is used to store the status of the issue like its pending/ completed.
 const statusSchema = new mongoose.Schema({
     open : {
         type : Boolean,
@@ -23,4 +25,4 @@ const statusSchema = new mongoose.Schema({
 }, {timestamps : true});
 
 const Status = mongoose.model('Status', statusSchema);
-module.exports = Status;
+module.exports = Status;          // Exporting the Schema for global access.
