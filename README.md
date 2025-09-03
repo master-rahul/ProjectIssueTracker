@@ -53,7 +53,7 @@ git --2.40.0
 ```go
 git clone https://github.com/master-rahul/ProjectIssueTracker.git
 ```
-3. Change directory to Ecomerce-API
+3. Change directory to ProjectIssueTracker
 ```go
 cd ProjectIssueTracker.
 ```
